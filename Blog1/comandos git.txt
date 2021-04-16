@@ -1,0 +1,8 @@
+comandos
+git add .
+git commit -m "alguma coisa"
+git push
+ git pull
+
+
+git reset --hard
