@@ -1,6 +1,7 @@
 const express = require("express")
 const connection = require("./database/database")
 const app = express();
+const session = require("express-session")
 const connections = require("./database/database")
 
 const categoriesController = require("./categories/CategoriesController")
@@ -13,6 +14,14 @@ const User = require("./users/User")
 
 //view engine 
 app.set('view engine', 'ejs');
+
+
+//sessions
+
+app.use(session({
+    secret:"qualquercoisa", cookie: { maxAge: 300000}
+}))
+
 
 //static 
 app.use(express.static('public'))
@@ -33,7 +42,10 @@ connection
 
 app.use("/",categoriesController);
 app.use("/", articlesController);
-app.use("/",usersController)
+app.use("/",usersController);
+
+
+
 
 
 app.get("/",(req, res) => {
