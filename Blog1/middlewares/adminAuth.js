@@ -6,4 +6,4 @@ function adminAuth(req, res, next){
     }
 }
 
-modeule.exports = adminAuth
+module.exports = adminAuth
